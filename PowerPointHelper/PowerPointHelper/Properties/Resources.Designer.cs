@@ -69,5 +69,41 @@ namespace PowerPointHelper.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   책갈피과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string RID_BookMark {
+            get {
+                return ResourceManager.GetString("RID_BookMark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   책갈피 목록과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string RID_BookMarkList {
+            get {
+                return ResourceManager.GetString("RID_BookMarkList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   책갈피 제거과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string RID_RemoveBookMark {
+            get {
+                return ResourceManager.GetString("RID_RemoveBookMark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   책갈피 추가과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string RID_SetBookMark {
+            get {
+                return ResourceManager.GetString("RID_SetBookMark", resourceCulture);
+            }
+        }
     }
 }

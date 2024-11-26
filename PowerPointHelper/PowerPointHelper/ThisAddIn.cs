@@ -14,7 +14,6 @@ namespace PowerPointHelper
 
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
-
             init();
         }
 
@@ -24,7 +23,20 @@ namespace PowerPointHelper
 
         #region -> private 함수
         private void init() {
-            this.helperRibbon = new HelperRibbon();
+            // 언어 설정
+            System.Globalization.CultureInfo cultureInfo = 
+                new System.Globalization.CultureInfo(this.Application.LanguageSettings.LanguageID[Office.MsoAppLanguageID.msoLanguageIDUI]);
+            System.Threading.Thread.CurrentThread.CurrentCulture = cultureInfo;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = cultureInfo;
+
+            helperRibbon = Globals.Ribbons.HelperRibbon;
+
+            // 리소스 업데이트
+            UpdateResources();
+        }
+
+        private void UpdateResources() {
+            this.helperRibbon.UpdateResources();
         }
         #endregion
 
