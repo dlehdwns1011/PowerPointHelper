@@ -10,13 +10,23 @@ namespace PowerPointHelper
 {
     public partial class ThisAddIn
     {
+        public HelperRibbon helperRibbon { get; set; }
+
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
+
+            init();
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {
         }
+
+        #region -> private 함수
+        private void init() {
+            this.helperRibbon = new HelperRibbon();
+        }
+        #endregion
 
         #region VSTO에서 생성한 코드
 
