@@ -71,6 +71,26 @@ namespace PowerPointHelper.Properties {
         }
         
         /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap BookMarkImage2 {
+            get {
+                object obj = ResourceManager.GetObject("BookMarkImage2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap BookMarkList {
+            get {
+                object obj = ResourceManager.GetObject("BookMarkList", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   책갈피과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string RID_BookMark {
@@ -85,6 +105,24 @@ namespace PowerPointHelper.Properties {
         internal static string RID_BookMarkList {
             get {
                 return ResourceManager.GetString("RID_BookMarkList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   책갈피 이름 : 과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string RID_BookMarkName {
+            get {
+                return ResourceManager.GetString("RID_BookMarkName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   취소과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string RID_Cancel {
+            get {
+                return ResourceManager.GetString("RID_Cancel", resourceCulture);
             }
         }
         

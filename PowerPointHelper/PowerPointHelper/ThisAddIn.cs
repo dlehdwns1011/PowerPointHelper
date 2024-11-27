@@ -31,8 +31,15 @@ namespace PowerPointHelper
 
             helperRibbon = Globals.Ribbons.HelperRibbon;
 
+            // 이벤트 추가
+            this.Application.SlideSelectionChanged += Application_SlideSelectionChanged;
+
             // 리소스 업데이트
             UpdateResources();
+        }
+
+        private void Application_SlideSelectionChanged(PowerPoint.SlideRange SldRange) {
+            helperRibbon.Update();
         }
 
         private void UpdateResources() {

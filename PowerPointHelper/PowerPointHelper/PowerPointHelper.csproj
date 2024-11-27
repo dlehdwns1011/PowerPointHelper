@@ -228,6 +228,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SetBookMarkDlg.resx">
+      <DependentUpon>SetBookMarkDlg.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="PowerPointHelper_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
@@ -237,6 +240,12 @@
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SetBookMarkDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetBookMarkDlg.Designer.cs">
+      <DependentUpon>SetBookMarkDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="ThisAddIn.cs">
       <SubType>Code</SubType>
@@ -253,6 +262,8 @@
     <Content Include="HelperOption.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\BookMarkList.png" />
+    <None Include="Resources\BookMarkImage2.png" />
     <None Include="Resources\BookMarkImage.png" />
   </ItemGroup>
   <PropertyGroup>

@@ -123,6 +123,12 @@
   <data name="RID_BookMarkList" xml:space="preserve">
     <value>BookMarkList</value>
   </data>
+  <data name="RID_BookMarkName" xml:space="preserve">
+    <value>BookMark Name : </value>
+  </data>
+  <data name="RID_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
   <data name="RID_RemoveBookMark" xml:space="preserve">
     <value>Remove</value>
   </data>
