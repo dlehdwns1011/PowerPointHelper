@@ -12,10 +12,16 @@ namespace PowerPointHelper {
         }
 
         public void UpdateResources() {
-            this.SetBookMarkButton.Label = Properties.Resources.RID_SetBookMark;
-            this.RemoveBookMarkButton.Label = Properties.Resources.RID_RemoveBookMark;
             this.BookMarkGroup.Label = Properties.Resources.RID_BookMark;
+
+            this.SetBookMarkButton.Label = Properties.Resources.RID_SetBookMark;
+            this.SetBookMarkButton.ScreenTip = Properties.Resources.RID_TipSetBookMark;
+
+            this.RemoveBookMarkButton.Label = Properties.Resources.RID_RemoveBookMark;
+            this.RemoveBookMarkButton.ScreenTip = Properties.Resources.RID_TipRemoveBookMark;
+
             this.BookMarkListButton.Label = Properties.Resources.RID_BookMarkList;
+            this.BookMarkListButton.ScreenTip = Properties.Resources.RID_TipBookMarkList;
         }
 
         public void Update() {
@@ -28,6 +34,7 @@ namespace PowerPointHelper {
                 this.RemoveBookMarkButton.Enabled = false;
             }
 
+            Updatesplit();
         }
 
         private void SetBookMarkButton_Click(object sender, RibbonControlEventArgs e) {
@@ -46,7 +53,11 @@ namespace PowerPointHelper {
         }
 
         private void BookMarkListButton_Click(object sender, RibbonControlEventArgs e) {
+            // 책갈피 목록
+            BookMarkListDlg dlg = new BookMarkListDlg();
+            dlg.ShowDialog();
 
+            Update();
         }
     }
 }

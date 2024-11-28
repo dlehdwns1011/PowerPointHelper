@@ -205,6 +205,13 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="BookMarkManager.cs" />
+    <Compile Include="Dialog\BookMarkListDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\BookMarkListDlg.Designer.cs">
+      <DependentUpon>BookMarkListDlg.cs</DependentUpon>
+    </Compile>
     <Compile Include="HelperRibbon.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -214,6 +221,9 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <EmbeddedResource Include="Dialog\BookMarkListDlg.resx">
+      <DependentUpon>BookMarkListDlg.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HelperRibbon.resx">
       <DependentUpon>HelperRibbon.cs</DependentUpon>
     </EmbeddedResource>
@@ -228,7 +238,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SetBookMarkDlg.resx">
+    <EmbeddedResource Include="Dialog\SetBookMarkDlg.resx">
       <DependentUpon>SetBookMarkDlg.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
@@ -241,10 +251,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="SetBookMarkDlg.cs">
+    <Compile Include="Dialog\SetBookMarkDlg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SetBookMarkDlg.Designer.cs">
+    <Compile Include="Dialog\SetBookMarkDlg.Designer.cs">
       <DependentUpon>SetBookMarkDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="ThisAddIn.cs">

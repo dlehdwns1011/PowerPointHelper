@@ -11,9 +11,11 @@ namespace PowerPointHelper
     public partial class ThisAddIn
     {
         public HelperRibbon helperRibbon { get; set; }
+        public BookMarkManager bookMarkManager { get; set; }
 
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
+
             init();
         }
 
@@ -30,6 +32,7 @@ namespace PowerPointHelper
             System.Threading.Thread.CurrentThread.CurrentUICulture = cultureInfo;
 
             helperRibbon = Globals.Ribbons.HelperRibbon;
+            bookMarkManager = new BookMarkManager();
 
             // 이벤트 추가
             this.Application.SlideSelectionChanged += Application_SlideSelectionChanged;

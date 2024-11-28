@@ -127,6 +127,24 @@ namespace PowerPointHelper.Properties {
         }
         
         /// <summary>
+        ///   책갈피로 이동과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string RID_MoveBookMark {
+            get {
+                return ResourceManager.GetString("RID_MoveBookMark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   확인과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string RID_OK {
+            get {
+                return ResourceManager.GetString("RID_OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   책갈피 제거과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string RID_RemoveBookMark {
@@ -141,6 +159,33 @@ namespace PowerPointHelper.Properties {
         internal static string RID_SetBookMark {
             get {
                 return ResourceManager.GetString("RID_SetBookMark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   모든 책갈피의 목록을 관리합니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string RID_TipBookMarkList {
+            get {
+                return ResourceManager.GetString("RID_TipBookMarkList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   현재 슬라이드를 책갈피에서 제거합니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string RID_TipRemoveBookMark {
+            get {
+                return ResourceManager.GetString("RID_TipRemoveBookMark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   현재 슬라이드를 책갈피에 추가합니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string RID_TipSetBookMark {
+            get {
+                return ResourceManager.GetString("RID_TipSetBookMark", resourceCulture);
             }
         }
     }

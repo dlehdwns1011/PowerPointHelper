@@ -129,10 +129,25 @@
   <data name="RID_Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="RID_MoveBookMark" xml:space="preserve">
+    <value>Move BookMark</value>
+  </data>
+  <data name="RID_OK" xml:space="preserve">
+    <value>Ok</value>
+  </data>
   <data name="RID_RemoveBookMark" xml:space="preserve">
     <value>Remove</value>
   </data>
   <data name="RID_SetBookMark" xml:space="preserve">
     <value>Set</value>
+  </data>
+  <data name="RID_TipBookMarkList" xml:space="preserve">
+    <value>Manage a list of all your BookMarks.</value>
+  </data>
+  <data name="RID_TipRemoveBookMark" xml:space="preserve">
+    <value>Removes the current slide from BookMarks.</value>
+  </data>
+  <data name="RID_TipSetBookMark" xml:space="preserve">
+    <value>Adds the current slide to BookMarks.</value>
   </data>
 </root>

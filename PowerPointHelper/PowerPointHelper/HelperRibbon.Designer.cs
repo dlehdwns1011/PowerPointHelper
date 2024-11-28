@@ -1,4 +1,8 @@
-﻿namespace PowerPointHelper {
+﻿using Microsoft.Office.Tools.Ribbon;
+using System.Reflection.Emit;
+using PowerPoint = Microsoft.Office.Interop.PowerPoint;
+
+namespace PowerPointHelper {
     partial class HelperRibbon : Microsoft.Office.Tools.Ribbon.RibbonBase {
         /// <summary>
         /// 필수 디자이너 변수입니다.
@@ -33,6 +37,7 @@
             this.SetBookMarkButton = this.Factory.CreateRibbonButton();
             this.RemoveBookMarkButton = this.Factory.CreateRibbonButton();
             this.BookMarkListButton = this.Factory.CreateRibbonButton();
+            this.splitButton1 = this.Factory.CreateRibbonSplitButton();
             this.tab1.SuspendLayout();
             this.BookMarkGroup.SuspendLayout();
             this.SuspendLayout();
@@ -49,6 +54,7 @@
             this.BookMarkGroup.Items.Add(this.SetBookMarkButton);
             this.BookMarkGroup.Items.Add(this.RemoveBookMarkButton);
             this.BookMarkGroup.Items.Add(this.BookMarkListButton);
+            this.BookMarkGroup.Items.Add(this.splitButton1);
             this.BookMarkGroup.Label = global::PowerPointHelper.Properties.Resources.RID_BookMark;
             this.BookMarkGroup.Name = "BookMarkGroup";
             // 
@@ -58,6 +64,7 @@
             this.SetBookMarkButton.Image = global::PowerPointHelper.Properties.Resources.BookMarkImage;
             this.SetBookMarkButton.Label = global::PowerPointHelper.Properties.Resources.RID_SetBookMark;
             this.SetBookMarkButton.Name = "SetBookMarkButton";
+            this.SetBookMarkButton.ScreenTip = global::PowerPointHelper.Properties.Resources.RID_TipSetBookMark;
             this.SetBookMarkButton.ShowImage = true;
             this.SetBookMarkButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.SetBookMarkButton_Click);
             // 
@@ -68,18 +75,27 @@
             this.RemoveBookMarkButton.Image = global::PowerPointHelper.Properties.Resources.BookMarkImage2;
             this.RemoveBookMarkButton.Label = global::PowerPointHelper.Properties.Resources.RID_RemoveBookMark;
             this.RemoveBookMarkButton.Name = "RemoveBookMarkButton";
+            this.RemoveBookMarkButton.ScreenTip = global::PowerPointHelper.Properties.Resources.RID_TipRemoveBookMark;
             this.RemoveBookMarkButton.ShowImage = true;
             this.RemoveBookMarkButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.RemoveBookMarkButton_Click);
             // 
             // BookMarkListButton
             // 
             this.BookMarkListButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.BookMarkListButton.Label = global::PowerPointHelper.Properties.Resources.RID_BookMarkList;
-            this.BookMarkListButton.Enabled = true;
-            this.BookMarkListButton.Name = "BookMarkListButton";
-            this.BookMarkListButton.ShowImage = true;
             this.BookMarkListButton.Image = global::PowerPointHelper.Properties.Resources.BookMarkList;
+            this.BookMarkListButton.Label = global::PowerPointHelper.Properties.Resources.RID_BookMarkList;
+            this.BookMarkListButton.Name = "BookMarkListButton";
+            this.BookMarkListButton.ScreenTip = global::PowerPointHelper.Properties.Resources.RID_TipBookMarkList;
+            this.BookMarkListButton.ShowImage = true;
             this.BookMarkListButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BookMarkListButton_Click);
+            // 
+            // splitButton1
+            // 
+            this.splitButton1.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.splitButton1.Image = global::PowerPointHelper.Properties.Resources.BookMarkList;
+            this.splitButton1.Label = global::PowerPointHelper.Properties.Resources.RID_BookMarkList;
+            this.splitButton1.Name = "splitButton1";
+            this.splitButton1.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BookMarkListButton_Click);
             // 
             // HelperRibbon
             // 
@@ -95,13 +111,26 @@
 
         }
 
+        void Updatesplit() {
+            //this.splitButton1.Items.Clear();
+            var markIndex = Globals.ThisAddIn.bookMarkManager.GetBookMarkedSlideIndex();
+            var slides = Globals.ThisAddIn.Application.ActivePresentation.Slides;
+            foreach (int index in markIndex) {
+                var newLabel = this.Factory.CreateRibbonButton();
+                newLabel.Label = slides[index].Tags["bookmark"];
+
+                this.splitButton1.Items.Add(newLabel);
+            }
+        }
+
         #endregion
 
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tab1;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup BookMarkGroup;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton SetBookMarkButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton RemoveBookMarkButton;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton BookMarkListButton;
+        internal RibbonButton BookMarkListButton;
+        internal RibbonSplitButton splitButton1;
     }
 
     partial class ThisRibbonCollection {

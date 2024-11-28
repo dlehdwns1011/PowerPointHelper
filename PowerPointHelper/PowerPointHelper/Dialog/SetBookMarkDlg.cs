@@ -20,7 +20,7 @@ namespace PowerPointHelper {
         public void UpdateResources() {
             this.label1.Text = Properties.Resources.RID_BookMarkName;
             this.cancelButton.Text = Properties.Resources.RID_Cancel;
-            this.OKButton.Text = "확인";
+            this.OKButton.Text = Properties.Resources.RID_OK;
 
             this.Text = Properties.Resources.RID_SetBookMark;
             
@@ -33,9 +33,9 @@ namespace PowerPointHelper {
 
         private void OKButton_Click(object sender, EventArgs e) {
             // 책갈피 추가하자
-            var activePresentation = Globals.ThisAddIn.Application.ActivePresentation;
             PowerPoint.Slide activeSlide = Globals.ThisAddIn.Application.ActiveWindow.View.Slide;
-            activeSlide.Tags.Add("bookmark", "이거슨 마크");
+
+            activeSlide.Tags.Add("bookmark", this.bookMarkNameText.Text);
 
             this.Close();
         }

@@ -94,7 +94,7 @@ namespace PowerPointHelper {
                     // 책갈피 추가하자
                     var activePresentation = Globals.ThisAddIn.Application.ActivePresentation;
                     PowerPoint.Slide activeSlide = Globals.ThisAddIn.Application.ActiveWindow.View.Slide;
-                    activeSlide.Tags.Add("bookmark", "이거슨 마크");
+                    activeSlide.Tags.Add("bookmark", this.bookMarkNameText.Text);
 
                     this.Close();
                 }
