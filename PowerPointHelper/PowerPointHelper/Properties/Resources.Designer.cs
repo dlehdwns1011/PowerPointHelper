@@ -100,6 +100,15 @@ namespace PowerPointHelper.Properties {
         }
         
         /// <summary>
+        ///   책갈피 편집과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string RID_BookMarkEdit {
+            get {
+                return ResourceManager.GetString("RID_BookMarkEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   책갈피 목록과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string RID_BookMarkList {
@@ -127,11 +136,20 @@ namespace PowerPointHelper.Properties {
         }
         
         /// <summary>
-        ///   책갈피로 이동과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   편집과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        internal static string RID_MoveBookMark {
+        internal static string RID_Edit {
             get {
-                return ResourceManager.GetString("RID_MoveBookMark", resourceCulture);
+                return ResourceManager.GetString("RID_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   이동과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string RID_Move {
+            get {
+                return ResourceManager.GetString("RID_Move", resourceCulture);
             }
         }
         
@@ -141,6 +159,15 @@ namespace PowerPointHelper.Properties {
         internal static string RID_OK {
             get {
                 return ResourceManager.GetString("RID_OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   제거과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string RID_Remove {
+            get {
+                return ResourceManager.GetString("RID_Remove", resourceCulture);
             }
         }
         

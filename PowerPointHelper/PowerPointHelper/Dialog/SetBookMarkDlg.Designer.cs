@@ -85,21 +85,11 @@ namespace PowerPointHelper {
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.ResumeLayout(false);
             this.PerformLayout();
+            this.Icon = new System.Drawing.Icon(Properties.Resources.ResourceManager.GetStream("BookMarkImage"));
 
         }
 
-        private void bookMarkNameText_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e) {
-            if (e.KeyCode == Keys.Enter) {
-                if (this.bookMarkNameText.Text.Length > 0) {
-                    // 책갈피 추가하자
-                    var activePresentation = Globals.ThisAddIn.Application.ActivePresentation;
-                    PowerPoint.Slide activeSlide = Globals.ThisAddIn.Application.ActiveWindow.View.Slide;
-                    activeSlide.Tags.Add("bookmark", this.bookMarkNameText.Text);
-
-                    this.Close();
-                }
-            }
-        }
+        
 
         #endregion
 

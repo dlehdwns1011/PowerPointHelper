@@ -130,6 +130,9 @@
   <data name="RID_BookMark" xml:space="preserve">
     <value>책갈피</value>
   </data>
+  <data name="RID_BookMarkEdit" xml:space="preserve">
+    <value>책갈피 편집</value>
+  </data>
   <data name="RID_BookMarkList" xml:space="preserve">
     <value>책갈피 목록</value>
   </data>
@@ -139,11 +142,17 @@
   <data name="RID_Cancel" xml:space="preserve">
     <value>취소</value>
   </data>
-  <data name="RID_MoveBookMark" xml:space="preserve">
-    <value>책갈피로 이동</value>
+  <data name="RID_Edit" xml:space="preserve">
+    <value>편집</value>
+  </data>
+  <data name="RID_Move" xml:space="preserve">
+    <value>이동</value>
   </data>
   <data name="RID_OK" xml:space="preserve">
     <value>확인</value>
+  </data>
+  <data name="RID_Remove" xml:space="preserve">
+    <value>제거</value>
   </data>
   <data name="RID_RemoveBookMark" xml:space="preserve">
     <value>책갈피 제거</value>

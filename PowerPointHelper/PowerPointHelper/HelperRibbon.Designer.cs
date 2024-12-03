@@ -37,7 +37,6 @@ namespace PowerPointHelper {
             this.SetBookMarkButton = this.Factory.CreateRibbonButton();
             this.RemoveBookMarkButton = this.Factory.CreateRibbonButton();
             this.BookMarkListButton = this.Factory.CreateRibbonButton();
-            this.splitButton1 = this.Factory.CreateRibbonSplitButton();
             this.tab1.SuspendLayout();
             this.BookMarkGroup.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +53,6 @@ namespace PowerPointHelper {
             this.BookMarkGroup.Items.Add(this.SetBookMarkButton);
             this.BookMarkGroup.Items.Add(this.RemoveBookMarkButton);
             this.BookMarkGroup.Items.Add(this.BookMarkListButton);
-            this.BookMarkGroup.Items.Add(this.splitButton1);
             this.BookMarkGroup.Label = global::PowerPointHelper.Properties.Resources.RID_BookMark;
             this.BookMarkGroup.Name = "BookMarkGroup";
             // 
@@ -89,14 +87,6 @@ namespace PowerPointHelper {
             this.BookMarkListButton.ShowImage = true;
             this.BookMarkListButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BookMarkListButton_Click);
             // 
-            // splitButton1
-            // 
-            this.splitButton1.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.splitButton1.Image = global::PowerPointHelper.Properties.Resources.BookMarkList;
-            this.splitButton1.Label = global::PowerPointHelper.Properties.Resources.RID_BookMarkList;
-            this.splitButton1.Name = "splitButton1";
-            this.splitButton1.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BookMarkListButton_Click);
-            // 
             // HelperRibbon
             // 
             this.Name = "HelperRibbon";
@@ -111,18 +101,6 @@ namespace PowerPointHelper {
 
         }
 
-        void Updatesplit() {
-            //this.splitButton1.Items.Clear();
-            var markIndex = Globals.ThisAddIn.bookMarkManager.GetBookMarkedSlideIndex();
-            var slides = Globals.ThisAddIn.Application.ActivePresentation.Slides;
-            foreach (int index in markIndex) {
-                var newLabel = this.Factory.CreateRibbonButton();
-                newLabel.Label = slides[index].Tags["bookmark"];
-
-                this.splitButton1.Items.Add(newLabel);
-            }
-        }
-
         #endregion
 
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tab1;
@@ -130,7 +108,6 @@ namespace PowerPointHelper {
         internal Microsoft.Office.Tools.Ribbon.RibbonButton SetBookMarkButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton RemoveBookMarkButton;
         internal RibbonButton BookMarkListButton;
-        internal RibbonSplitButton splitButton1;
     }
 
     partial class ThisRibbonCollection {

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using PowerPoint = Microsoft.Office.Interop.PowerPoint;
@@ -24,8 +25,17 @@ namespace PowerPointHelper {
             return bookMarkedSlideIndex;
         }
 
+        public void EditBookMark(int sldIndex, string newName) {
+            var nowSlide = Globals.ThisAddIn.Application.ActivePresentation.Slides[sldIndex];
+            nowSlide.Tags.Delete("bookmark");
+            nowSlide.Tags.Add("bookmark", newName);
+        }
+
         public void DeleteBookMarks(List<int> sldList) {
-            Globals.ThisAddIn.Application.ActivePresentation.Slides.Range(sldList).Delete();
+            foreach (int index in sldList) {
+                var nowSlide = Globals.ThisAddIn.Application.ActivePresentation.Slides[index];
+                nowSlide.Tags.Delete("bookmark");
+            }
         }
 
         public void MoveBookMark(int sldIndex) {

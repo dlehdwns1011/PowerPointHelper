@@ -26,6 +26,94 @@ namespace PowerPointHelper {
             foreach (int sld in sldList) {
                 this.bookMarkListBox.Items.Add("[" + sld.ToString() + "] " + slides[sld].Tags["bookmark"]);
             }
+
+            if (this.bookMarkListBox.SelectedItems.Count == 0) {
+                this.editBookMark.Enabled = false;
+                this.removeBookMark.Enabled = false;
+                this.goToBookMark.Enabled = false;
+            } else if (this.bookMarkListBox.SelectedItems.Count == 1) {
+                this.editBookMark.Enabled = true;
+                this.removeBookMark.Enabled = true;
+                this.goToBookMark.Enabled = true;
+            } else if (this.bookMarkListBox.SelectedItems.Count > 1) {
+                this.editBookMark.Enabled = false;
+                this.removeBookMark.Enabled = true;
+                this.goToBookMark.Enabled = false;
+            }
+        }
+
+        private void editBookMark_Click(object sender, EventArgs e) {
+            var listBox = this.bookMarkListBox;
+            if (listBox == null) {
+                return;
+            }
+
+            SetBookMarkDlg setBookMarkDlg = new SetBookMarkDlg();
+            setBookMarkDlg.Text = Properties.Resources.RID_BookMarkEdit;
+            setBookMarkDlg.selectedSlideIndex = sldList[listBox.SelectedIndex];
+            setBookMarkDlg.ShowDialog();
+
+            if (setBookMarkDlg.DialogResult == DialogResult.OK) {
+                Init();
+            }
+        }
+
+        private void removeBookMark_Click(object sender, EventArgs e) {
+            var listBox = this.bookMarkListBox;
+            if (listBox == null) {
+                return;
+            }
+
+            List<int> removeList = new List<int>();
+            for (int index = 0; index < listBox.SelectedItems.Count; ++index) {
+                removeList.Add(sldList[index]);
+            }
+
+            Globals.ThisAddIn.bookMarkManager.DeleteBookMarks(removeList);
+
+            Init();
+        }
+
+        private void goToBookMark_Click(object sender, EventArgs e) {
+            var listBox = this.bookMarkListBox;
+            if (listBox == null) {
+                return;
+            }
+
+            this.Close();
+            Globals.ThisAddIn.bookMarkManager.MoveBookMark(sldList[listBox.SelectedIndex]);
+        }
+
+        private void bookMarkListBox_SelectedIndexChanged(object sender, EventArgs e) {
+            // 책갈피 목록 리스트 변경 이벤트
+            var listBox = sender as ListBox;
+            if (listBox == null) {
+                return;
+            }
+
+            if (listBox.SelectedItems.Count == 0) {
+                this.editBookMark.Enabled = false;
+                this.removeBookMark.Enabled = false;
+                this.goToBookMark.Enabled = false;
+            } else if (listBox.SelectedItems.Count == 1) {
+                this.editBookMark.Enabled = true;
+                this.removeBookMark.Enabled = true;
+                this.goToBookMark.Enabled = true;
+            } else if (listBox.SelectedItems.Count > 1) {
+                this.editBookMark.Enabled = false;
+                this.removeBookMark.Enabled = true;
+                this.goToBookMark.Enabled = false;
+            }
+        }
+
+        private void bookMarkListBox_DoulbeClick(object sender, EventArgs e) {
+            var listBox = sender as ListBox;
+            if (listBox == null) {
+                return;
+            }
+
+            this.Close();
+            Globals.ThisAddIn.bookMarkManager.MoveBookMark(sldList[listBox.SelectedIndex]);
         }
     }
 }

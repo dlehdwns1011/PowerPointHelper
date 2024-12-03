@@ -33,8 +33,6 @@ namespace PowerPointHelper {
                 this.SetBookMarkButton.Enabled = true;
                 this.RemoveBookMarkButton.Enabled = false;
             }
-
-            Updatesplit();
         }
 
         private void SetBookMarkButton_Click(object sender, RibbonControlEventArgs e) {
@@ -46,8 +44,10 @@ namespace PowerPointHelper {
         }
 
         private void RemoveBookMarkButton_Click(object sender, RibbonControlEventArgs e) {
+            List<int> removeList = new List<int>();
             PowerPoint.Slide activeSlide = Globals.ThisAddIn.Application.ActiveWindow.View.Slide;
-            activeSlide.Tags.Delete("bookmark");
+            removeList.Add(activeSlide.SlideIndex);
+            Globals.ThisAddIn.bookMarkManager.DeleteBookMarks(removeList);
 
             Update();
         }

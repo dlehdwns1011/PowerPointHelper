@@ -16,6 +16,8 @@ namespace PowerPointHelper {
             UpdateResources();
         }
 
+        public int selectedSlideIndex { get; set; }
+
         #region -> 공개 함수
         public void UpdateResources() {
             this.label1.Text = Properties.Resources.RID_BookMarkName;
@@ -32,12 +34,38 @@ namespace PowerPointHelper {
         }
 
         private void OKButton_Click(object sender, EventArgs e) {
-            // 책갈피 추가하자
-            PowerPoint.Slide activeSlide = Globals.ThisAddIn.Application.ActiveWindow.View.Slide;
+            if (this.Text == Properties.Resources.RID_SetBookMark) {
+                // 책갈피 추가하자
+                PowerPoint.Slide activeSlide = Globals.ThisAddIn.Application.ActiveWindow.View.Slide;
 
-            activeSlide.Tags.Add("bookmark", this.bookMarkNameText.Text);
+                activeSlide.Tags.Add("bookmark", this.bookMarkNameText.Text);
 
+            } else if (this.Text == Properties.Resources.RID_BookMarkEdit) {
+                // 책갈피 편집
+                this.DialogResult = DialogResult.OK;
+                Globals.ThisAddIn.bookMarkManager.EditBookMark(selectedSlideIndex, this.bookMarkNameText.Text);
+            }
+            
             this.Close();
+        }
+
+        private void bookMarkNameText_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e) {
+            if (e.KeyCode == Keys.Enter) {
+                if (this.bookMarkNameText.Text.Length > 0) {
+                    if (this.Text == Properties.Resources.RID_SetBookMark) {
+                        // 책갈피 추가하자
+                        PowerPoint.Slide activeSlide = Globals.ThisAddIn.Application.ActiveWindow.View.Slide;
+
+                        activeSlide.Tags.Add("bookmark", this.bookMarkNameText.Text);
+                    } else if (this.Text == Properties.Resources.RID_BookMarkEdit) {
+                        // 책갈피 편집
+                        this.DialogResult = DialogResult.OK;
+                        Globals.ThisAddIn.bookMarkManager.EditBookMark(selectedSlideIndex, this.bookMarkNameText.Text);
+                    }
+
+                    this.Close();
+                }
+            }
         }
 
         private void bookMarkNameText_TextChanged(object sender, EventArgs e) {
