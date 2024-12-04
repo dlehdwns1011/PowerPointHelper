@@ -85,8 +85,9 @@
             this.Controls.Add(this.bookMarkListBox);
             this.Name = "BookMarkListDlg";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "책갈피 목록";
+            this.Text = global::PowerPointHelper.Properties.Resources.RID_BookMarkList;
             this.ResumeLayout(false);
+            this.ShowIcon = false;
 
         }
 

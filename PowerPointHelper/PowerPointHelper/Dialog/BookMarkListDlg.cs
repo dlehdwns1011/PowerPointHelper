@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 
@@ -51,6 +45,7 @@ namespace PowerPointHelper {
             SetBookMarkDlg setBookMarkDlg = new SetBookMarkDlg();
             setBookMarkDlg.Text = Properties.Resources.RID_BookMarkEdit;
             setBookMarkDlg.selectedSlideIndex = sldList[listBox.SelectedIndex];
+            setBookMarkDlg.SetBeforeName(Globals.ThisAddIn.Application.ActivePresentation.Slides[sldList[listBox.SelectedIndex]].Tags["bookmark"]);
             setBookMarkDlg.ShowDialog();
 
             if (setBookMarkDlg.DialogResult == DialogResult.OK) {
@@ -65,8 +60,8 @@ namespace PowerPointHelper {
             }
 
             List<int> removeList = new List<int>();
-            for (int index = 0; index < listBox.SelectedItems.Count; ++index) {
-                removeList.Add(sldList[index]);
+            for (int index = 0; index < listBox.SelectedIndices.Count;++index) {
+                removeList.Add(sldList[listBox.SelectedIndices[index]]);
             }
 
             Globals.ThisAddIn.bookMarkManager.DeleteBookMarks(removeList);

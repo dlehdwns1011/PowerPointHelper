@@ -1,5 +1,4 @@
 ﻿using Microsoft.Office.Tools.Ribbon;
-using System.Reflection.Emit;
 using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 
 namespace PowerPointHelper {

@@ -1,8 +1,5 @@
 ﻿using Microsoft.Office.Tools.Ribbon;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 
 namespace PowerPointHelper {

@@ -1,5 +1,4 @@
-﻿using System.Windows.Forms;
-using PowerPoint = Microsoft.Office.Interop.PowerPoint;
+﻿using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 
 namespace PowerPointHelper {
     partial class SetBookMarkDlg {
@@ -39,7 +38,7 @@ namespace PowerPointHelper {
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 12);
             this.label1.TabIndex = 0;
-            this.label1.Text = "책갈피 이름 : ";
+            this.label1.Text = "책갈피 이름 : "; 
             // 
             // bookMarkNameText
             // 
@@ -49,6 +48,7 @@ namespace PowerPointHelper {
             this.bookMarkNameText.TabIndex = 1;
             this.bookMarkNameText.TextChanged += new System.EventHandler(this.bookMarkNameText_TextChanged);
             this.bookMarkNameText.KeyUp += bookMarkNameText_KeyUp;
+            this.bookMarkNameText.MaxLength = 30;
             // 
             // cancelButton
             // 
@@ -85,7 +85,7 @@ namespace PowerPointHelper {
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.ResumeLayout(false);
             this.PerformLayout();
-            this.Icon = new System.Drawing.Icon(Properties.Resources.ResourceManager.GetStream("BookMarkImage"));
+            this.ShowIcon = false;
 
         }
 

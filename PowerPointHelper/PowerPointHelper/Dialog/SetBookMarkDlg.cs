@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 
@@ -25,7 +18,10 @@ namespace PowerPointHelper {
             this.OKButton.Text = Properties.Resources.RID_OK;
 
             this.Text = Properties.Resources.RID_SetBookMark;
-            
+        }
+
+        public void SetBeforeName(String beforeName) {
+            this.bookMarkNameText.Text = beforeName;
         }
         #endregion
 
@@ -80,5 +76,7 @@ namespace PowerPointHelper {
                 this.OKButton.Enabled = false;
             }
         }
+
+        
     }
 }
