@@ -101,14 +101,18 @@ namespace PowerPointHelper {
             }
         }
 
-        private void bookMarkListBox_DoulbeClick(object sender, EventArgs e) {
+        private void bookMarkListBox_DoulbeClick(object sender, MouseEventArgs e) {
             var listBox = sender as ListBox;
-            if (listBox == null) {
+            if (listBox == null || listBox.SelectedItems.Count != 1) {
                 return;
             }
 
-            this.Close();
-            Globals.ThisAddIn.bookMarkManager.MoveBookMark(sldList[listBox.SelectedIndex]);
+            var selectedItemRect = listBox.GetItemRectangle(listBox.SelectedIndex);
+            if(selectedItemRect.Contains(e.X, e.Y)) {
+                this.Close();
+                Globals.ThisAddIn.bookMarkManager.MoveBookMark(sldList[listBox.SelectedIndex]);
+            }
+
         }
     }
 }
