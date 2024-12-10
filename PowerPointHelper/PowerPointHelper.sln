@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerPointHelper", "PowerPointHelper\PowerPointHelper.csproj", "{30C44F8F-7974-4BA1-A677-141C52893883}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "OfficeAddInSetup", "OfficeAddInSetup\OfficeAddInSetup.vdproj", "{EFA5E7F7-45C3-4B6A-8811-A2C8790D22DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{30C44F8F-7974-4BA1-A677-141C52893883}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30C44F8F-7974-4BA1-A677-141C52893883}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30C44F8F-7974-4BA1-A677-141C52893883}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFA5E7F7-45C3-4B6A-8811-A2C8790D22DB}.Debug|Any CPU.ActiveCfg = Debug
+		{EFA5E7F7-45C3-4B6A-8811-A2C8790D22DB}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
