@@ -36,5 +36,17 @@ namespace PowerPointHelper {
         public void MoveBookMark(int sldIndex) {
             Globals.ThisAddIn.Application.ActivePresentation.Slides[sldIndex].Select();
         }
+
+        public bool IsExistBookMark(PowerPoint.Slide slide) {
+            if (slide == null) {
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(slide.Tags["bookmark"])) {
+                return false;
+            }
+
+            return true;
+        }
     }
 }
