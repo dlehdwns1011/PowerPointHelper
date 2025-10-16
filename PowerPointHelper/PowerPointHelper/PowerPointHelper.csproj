@@ -206,11 +206,23 @@
   -->
   <ItemGroup>
     <Compile Include="BookMarkManager.cs" />
+    <Compile Include="ContextMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContextMenuForm.Designer.cs">
+      <DependentUpon>ContextMenuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialog\BookMarkListDlg.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialog\BookMarkListDlg.Designer.cs">
       <DependentUpon>BookMarkListDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelperContextMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HelperContextMenu.Designer.cs">
+      <DependentUpon>HelperContextMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="HelperRibbon.cs">
       <SubType>Component</SubType>
@@ -221,8 +233,14 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <EmbeddedResource Include="ContextMenuForm.resx">
+      <DependentUpon>ContextMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialog\BookMarkListDlg.resx">
       <DependentUpon>BookMarkListDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelperContextMenu.resx">
+      <DependentUpon>HelperContextMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HelperRibbon.resx">
       <DependentUpon>HelperRibbon.cs</DependentUpon>
@@ -257,6 +275,10 @@
     <Compile Include="Dialog\SetBookMarkDlg.Designer.cs">
       <DependentUpon>SetBookMarkDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ribbon.cs">
+      <XmlRibbon>true</XmlRibbon>
+    </Compile>
+    <Compile Include="ShapeContextMenu.cs" />
     <Compile Include="ThisAddIn.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -272,6 +294,8 @@
     <Content Include="HelperOption.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Ribbon.xml" />
+    <EmbeddedResource Include="ShapeContextMenu.xml" />
     <None Include="Resources\BookMarkList.png" />
     <None Include="Resources\BookMarkImage2.png" />
     <None Include="Resources\BookMarkImage.png" />

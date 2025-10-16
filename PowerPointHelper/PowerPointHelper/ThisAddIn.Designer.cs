@@ -208,7 +208,7 @@ namespace PowerPointHelper {
             }
         }
         
-        internal static ThisRibbonCollection Ribbons {
+        public static ThisRibbonCollection Ribbons {
             get {
                 if ((_ThisRibbonCollection == null)) {
                     _ThisRibbonCollection = new ThisRibbonCollection(_factory.GetRibbonFactory());

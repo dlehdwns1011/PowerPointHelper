@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<customUI onLoad="Ribbon_Load" xmlns="http://schemas.microsoft.com/office/2006/01/customui">
+    <ribbon>
+        <tabs>
+            <tab idMso="TabAddIns" label="Helper">
+                <group id="BookMarkGroup" label="책갈피">
+                    <button id="SetBookMarkButton" onAction="SetBookMarkButton_Click" screentip="현재 슬라이드를 책갈피에 추가합니다." label="책갈피 추가" size="large" />
+                    <button id="RemoveBookMarkButton" onAction="RemoveBookMarkButton_Click" screentip="현재 슬라이드를 책갈피에서 제거합니다." enabled="false" label="책갈피 제거" size="large" />
+                    <button id="BookMarkListButton" onAction="BookMarkListButton_Click" screentip="모든 책갈피의 목록을 관리합니다." label="책갈피 목록" size="large" />
+                </group>
+            </tab>
+        </tabs>
+    </ribbon>
+</customUI>
